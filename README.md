@@ -145,7 +145,7 @@ FROM sales_table
 GROUP BY sales_table."Region"
 ORDER BY PROFIT_MARGIN DESC;
 ```
-<img src= "Sales_Performance_Project/assets/total profit total margin by region .jpeg" width="50%">
+<img src= "Sales_Performance_Project/assets/total profit total margin by region .jpeg" width="85%">
 
 ### 5. Historical Growth Tracking
 * **File:** `5_YoY_Growth.sql`
