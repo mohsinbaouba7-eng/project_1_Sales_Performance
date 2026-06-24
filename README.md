@@ -113,7 +113,7 @@ SELECT
 FROM 
 sales_table;
 ```
-Total financial health of the Business
+*Total financial health of the Business*
 
 | global_revenue | global_cost | global_profit | profit_margin |
 | :--- | :--- | :--- | :--- |
@@ -134,7 +134,7 @@ GROUP BY
     sales_table."Item_Type"
 ORDER BY Total_Profit DESC;
 ```
- The most profitable Item_type is **Household**. It is leading by $7,187,363,61 of Profit with 4336803 units sold.
+ *The most profitable Item_type is **Household goods**. It is leading by $7,187,363,61 of Profit with 4336803 units sold.*
 
 | Item_Type | total_unit_sold | total_profit |
 | :--- | :--- | :--- |
@@ -179,7 +179,7 @@ GROUP BY "Country"
 ORDER BY SUM("Total_Revenue") DESC
 LIMIT 5;
 ```
-Of the top 5 highest countries in terms of Total Revnue, TAIWAN leading by 113M Follwed by GRENADA 107M. These 2 countries serve as primary commercial strongholds.
+*Of the top 5 highest countries in terms of Total Revnue, TAIWAN leading by 113M Follwed by GRENADA 107M. These 2 countries serve as primary commercial strongholds.*
 
 | Country | total_revenue |
 | :--- | :--- |
@@ -242,6 +242,9 @@ SELECT
 FROM MonthlySales
 ORDER BY sales_year DESC, sales_month DESC;
 ```
+*May was a massive success, shooting up over 26% compared to May 2016.*
+
+*The Surrounding Slumps: Interestingly, the months right before (April at -22.67%) and right after (June at -12.59%) saw heavy losses.*
 
 | sales_year | sales_month | current_year_sales | previous_year_sales | yoy_growth_percentage |
 | :---: | :---: | :--- | :--- | :---: |
@@ -317,6 +320,10 @@ SELECT
 SELECT *
 FROM sales_table;
 ```
+*Vegetables have the fastest average delivery turnaround at 23.93 days, closely followed by Household goods at 24.39.*
+ 
+ *The "Cap" Bottleneck: Interestingly, every single item type listed has a maximum delivery time of exactly 50. This strongly suggests a system cap, data truncation, or a hard operational deadline where no delivery is allowed to exceed 50 units of time, acting as a clear ceiling across the board.*
+
 | Item_Type | avg_delivery_time | max_delivery_time |
 | :--- | :---: | :---: |
 | Vegetables | 23.93 | 50 |
