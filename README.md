@@ -161,7 +161,29 @@ ORDER BY PROFIT_MARGIN DESC;
 
 *Bar Graph of total Profit and total Margin of different regions; ChatGPT genetated this from my SQL query results*
 
-### 5. Historical Growth Tracking
+
+### 5. Top 5 Countries by Highest Total Revenue
+* **Purpose:** Isoloates individual national markets by aggregating total sales volume. This identifies the top 5 highest-grossing countries globally, spotlighting key geographical strongholds and high-value customer hubs driving commercial growth.
+
+```sql
+SELECT
+    "Country",
+    TO_CHAR(SUM("Total_Revenue"), '$99,999,999,999') AS total_revenue
+FROM sales_table
+GROUP BY "Country"
+ORDER BY SUM("Total_Revenue") DESC
+LIMIT 5;
+```
+| Country | total_revenue |
+| :--- | :--- |
+| Taiwan | $ 113,106,946 |
+| Grenada | $ 107,335,743 |
+| Bahrain | $ 99,297,050 |
+| Kiribati | $ 99,076,325 |
+| Bangladesh | $ 97,386,350 |
+
+
+### 6. Historical Growth Tracking
 * **File:** `5_YoY_Growth.sql`
 * **Purpose:** Utilizes advanced window functions (`LAG()`, `LEAD()`) to calculate **Year-over-Year (YoY) Growth Rates**. This determines whether the company's financial trajectories are accelerating or slowing down over time.
 
@@ -215,7 +237,7 @@ ORDER BY sales_year DESC, sales_month DESC;
 ```
 
 
-### 6. Deep-Dive Seasonal Analysis
+### 7. Deep-Dive Seasonal Analysis
 * **File:** `6_May_Profit 2016 vs 2017.sql`
 * **Purpose:** Performs a localized comparative analysis isolating specific calendar periods (May 2016 vs. May 2017) to study short-term variance, seasonal spikes, or anomalies in customer purchasing behavior.
 
@@ -255,7 +277,7 @@ FROM sales_table;
 
 ```
 
-### 7. Logistics & Supply Chain Efficiency
+### 8. Logistics & Supply Chain Efficiency
 * **File:** `7_Avr_delivery time vs Max_delivery_time.sql`
 * **Purpose:** Shifts focus to operations by computing metrics based on order dates and ship dates. It compares average delivery times against maximum delays to flag supply chain bottlenecks.
 ```sql
